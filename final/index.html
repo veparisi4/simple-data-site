@@ -22,7 +22,24 @@
           <div class="card-body">
             <h2 class="card-title">{{ song.songName }}</h2>
             <h3 class="card-subtitle">by {{ song.artist }}</h3>
-            <p class="card-text">I am a {{ card }}</p>
+            <div class="row">
+              <div class="col-4">
+                <p class="card-text">“{{ song.songName }}” is {{ song.addedBy }}’s favorite song.</p>
+                <p class="card-text">“{{ song.songName }}” was released in {{ song.year }} and appears on the album <em>{{ song.albumTitle }}</em>.</p>
+                <p class="card-text">You can read more about "{{ song.songName }}" by following <a v-bind:href="song.moreInfoUrl">this link</a>.</p>
+              </div>
+              <div class="col-8">
+                <div style="position:relative;padding-top:56.25%;">
+                  <iframe width="100%" height="100%"
+                          style="position:absolute;top:0;left:0;"
+                          v-bind:src="'https://www.youtube.com/embed/' + song.youTubeId" 
+                          frameborder="0" 
+                          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                          allowfullscreen></iframe>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
